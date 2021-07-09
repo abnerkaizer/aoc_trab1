@@ -65,6 +65,9 @@ loop4:
 exit:
 #index - i
 li $t0,0
+#espaço
+li $t2,0x20
+sw $t2,0($gp)
 #while loop para printar cima[]
 print:
 	beq $t0, $s0, END #t0 == n
@@ -75,8 +78,6 @@ print:
 	syscall
 	#printa os espaços entre os números
 	li $v0,4
-	li $t2,0x20
-	sw $t2,0($gp)
 	add $a0,$gp,$zero
 	syscall
 	addi $t0, $t0, 4 #i++
